@@ -29,9 +29,12 @@ def pygameWindow(rows, columns):
                 pos = pygame.mouse.get_pos()
                 column = pos[0] // (WIDTH + MARGIN)
                 row = pos[1] // (HEIGHT + MARGIN)
-                grid[row][column] = 1
                 if ([row, column] not in cellsClicked):
                     cellsClicked.append([row, column])
+                    grid[row][column] = 1
+                else:
+                    cellsClicked.remove([row, column])
+                    grid[row][column] = 0
      
         screen.fill(BLACK)
      
